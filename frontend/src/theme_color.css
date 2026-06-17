@@ -1,0 +1,45 @@
+/* ----------------------------------------- */
+/* 1. ตัวแปรสีพื้นฐาน */
+/* ----------------------------------------- */
+:root {
+    --base-bg: #F4F7F9;
+    --base-surface: #FFFFFF;
+    --base-border: #E5E7EB; /* แก้คำผิดตรงนี้ครับ */
+    --text-main: #1F2937;
+    --text-muted: #6B7280;
+
+    /* ธีมหลัก (ค่าเริ่มต้นคือสีส้มของ Admin) */
+    --theme-primary: #F05A28;
+    --theme-hover: #D94B1E;
+    --theme-light: #FFF0E6;
+    --theme-sidebar: #FFFFFF;
+    --theme-sidebar-text: #1F2937;
+}
+
+.theme_macs {
+    /* เมื่อครอบคลาสนี้ (หน้า User) ให้เปลี่ยนค่าตัวแปรเดิมเป็นสีน้ำเงิน */
+    --theme-primary: #0D6EFD;
+    --theme-hover: #0B5ED7;
+    --theme-light: #E0F2FE;
+    --theme-sidebar: #0B1D3A;
+    --theme-sidebar-text: #FFFFFF;
+}
+
+/* ----------------------------------------- */
+/* 2. ผูกสีเข้ากับ Tailwind v4 */
+/* ----------------------------------------- */
+@theme {
+    --color-base-bg: var(--base-bg);
+    --color-base-surface: var(--base-surface);
+    --color-base-border: var(--base-border);
+
+    --color-text-main: var(--text-main);
+    --color-text-muted: var(--text-muted);
+
+    /* ผูกตัวแปรธีมเข้ากับ Tailwind */
+    --color-theme-primary: var(--theme-primary);
+    --color-theme-hover: var(--theme-hover);
+    --color-theme-light: var(--theme-light);
+    --color-theme-sidebar: var(--theme-sidebar);
+    --color-theme-sidebarText: var(--theme-sidebar-text);
+}
