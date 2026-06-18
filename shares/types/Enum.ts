@@ -37,3 +37,4 @@ export enum EquipmentStatus {
     MAINTENANCE = 'ส่งซ่อม',   
     DISPOSED = 'จำหน่ายออก/ขายแล้ว'
 }
+

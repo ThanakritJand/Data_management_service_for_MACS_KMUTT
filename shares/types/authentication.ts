@@ -1,13 +1,6 @@
-import { UserRole } from "./Enum"
-export interface UserLogin {
-    email: string;
-    password: string;
-    role: UserRole;
-}
-
 export interface UserProfile {
-    id: string;
+    id: number;
     email: string;
-    role:  UserRole;
-    name?: string;
+    role: 'USER' | 'ADMIN';
+    name: string | null;
 }
