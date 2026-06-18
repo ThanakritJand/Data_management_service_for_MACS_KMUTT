@@ -1,14 +1,14 @@
 export interface catagory {
-    id: number
+    id: string
     name: string
 }
 
 export interface EquipmentType {
-    id: number
+    id: string
     name: string
 }
 
 export interface Unit {
-    id: number
+    id: string
     name: string
 }

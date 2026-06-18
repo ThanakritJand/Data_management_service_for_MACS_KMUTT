@@ -1,5 +1,5 @@
 export interface FileData {
-    fileId: number;
+    fileId: string;
     fileName: string; 
     fileSize: number; 
     fileType: string; 

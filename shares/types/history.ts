@@ -1,7 +1,7 @@
 import { EntityType, HistoryStatus } from "./Enum"
 
 export interface ExcelImportHistory {
-    id: number
+    id: string
     importBy: string
     fileName: string
     totalRows: number
@@ -11,11 +11,11 @@ export interface ExcelImportHistory {
 }
 
 export interface OperationHistory {
-    id: number
-    userId: number
+    id: string
+    userId: string
     action: HistoryStatus
     entityType: EntityType
-    entityId: number
+    entityId: string
     description: string
     timeStamp: Date
 }

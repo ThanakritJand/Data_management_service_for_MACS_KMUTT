@@ -1,7 +1,7 @@
 import { FileData } from "./fileManagement";
 
 export interface EquipmentItem {
-    id: number;
+    id: string;
     // require
     name: string;
     type: string;

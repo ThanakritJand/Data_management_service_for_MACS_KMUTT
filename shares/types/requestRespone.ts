@@ -1,10 +1,10 @@
 import { ApproveStatus } from "./Enum"
 
 export interface EquipmentRequest {
-    id: number
-    userId: number
-    equipmentId: number
-    reasonForUse: number
+    id: string
+    userId: string
+    equipmentId: string
+    reasonForUse: string
     quantity: number
     status: ApproveStatus
     requestAt: Date
