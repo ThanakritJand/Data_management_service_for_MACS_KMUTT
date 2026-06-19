@@ -4,7 +4,7 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../generated/prisma"
 }
 
@@ -133,4 +133,21 @@ model Equipment {
   attachFile      FileData?     @relation("AttachFiles", fields: [attachFileId], references: [fileId])
 
   @@map("equipments")
+}
+
+model EquipmentSaleRecord {
+  id                Int           @id @default(autoincrement())
+  title             String        
+  department        String        
+  estimatedPrice    Decimal       @db.Decimal(12, 2) 
+  auctionMethod     AuctionMethod 
+  auctionDate       DateTime      
+  soldPrice         Decimal       @db.Decimal(12, 2) 
+  winnerName        String        
+  responsiblePerson String        
+
+  createdAt         DateTime      @default(now()) @map("created_at")
+  updatedAt         DateTime      @updatedAt @map("updated_at")
+
+  @@map("equipment_sale_records")
 }
