@@ -22,9 +22,9 @@ const SidebarUser = () => {
         <ul className="flex flex-col gap-5 my-3">
             <Link to="/user" className="flex items-center gap-2"><FaHome /> <span>หน้าแรก</span></Link>
             <Link to="/" className="flex items-center gap-2"><IoSearchSharp /> <span>ค้นหารายการ</span></Link>
-            <Link to="/" className="flex items-center gap-2"><TiPlus /> <span>ขอเพิ่มรายการ</span></Link>
+            <Link to="addItem" className="flex items-center gap-2"><TiPlus /> <span>ขอเพิ่มรายการ</span></Link>
             <Link to="/" className="flex items-center gap-2"><PiNotePencilBold /> <span>ขอแก้ไขรายการ</span></Link>
-            <Link to="/" className="flex items-center gap-2"><BiImport /> <span>Import Center</span></Link>
+            <Link to="importcenter" className="flex items-center gap-2"><BiImport /> <span>Import Center</span></Link>
             <Link to="/" className="flex items-center gap-2"><SiGoogledocs /> <span>เอกสารอ้างอิง</span></Link>
         </ul>
         
