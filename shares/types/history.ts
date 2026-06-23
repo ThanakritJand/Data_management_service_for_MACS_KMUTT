@@ -1,25 +1,3 @@
-// import { EntityType, HistoryStatus } from "./Enum"
-
-// export interface ExcelImportHistory {
-//     id: string
-//     importBy: string
-//     fileName: string
-//     totalRows: number
-//     successfulRows: number
-//     failedRows: number
-//     importDate: Date
-// }
-
-// export interface OperationHistory {
-//     id: string
-//     userId: string
-//     action: HistoryStatus
-//     entityType: EntityType
-//     entityId: string
-//     description: string
-//     timeStamp: Date
-// }
-
 // ดึง Type ต้นฉบับมาจาก Prisma (ที่อยู่ใน backend/generated/prisma)
 // *หมายเหตุ: ตรวจสอบ path ให้ตรงกับโครงสร้างโฟลเดอร์ของคุณนะครับ
 import type { 
@@ -27,7 +5,7 @@ import type {
     OperationHistory as PrismaOperation,
     HistoryStatus,
     EntityType
-} from '../../backend/generated/';
+} from '../../backend/generated/prisma';
 
 // 1. Export Enum ให้หน้าบ้านเรียกใช้ได้
 export { HistoryStatus, EntityType };

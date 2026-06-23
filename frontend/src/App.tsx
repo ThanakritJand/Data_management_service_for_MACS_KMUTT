@@ -4,6 +4,9 @@ import { BrowserRouter , Routes , Route , Navigate } from "react-router-dom";
 // page
 import Home from "./pages/public/Home";
 import Homepage from "./pages/user/Homepage";
+import AddItemPage from "./pages/user/AddItemPage";
+import ExcelImportPage from "./pages/user/ExcelImportPage";
+import SearchFilterPage from "./pages/user/SearchFilterPage";
 
 function App (){
   return (
@@ -21,7 +24,9 @@ function App (){
         {/* ======================================= */}
         {/* URL ที่ขึ้นต้นด้วย /user จะถูกครอบด้วย NavbarUser ทั้งหมด [cite: 90] */}
         <Route path="/user" element={<Homepage />}>
-          
+          <Route path="addItem" element={<AddItemPage />}/>
+          <Route path="import-center" element={<ExcelImportPage />}/>
+          <Route path="filter" element={<SearchFilterPage />}/>
           {/* ตัวลูก: เนื้อหาเหล่านี้จะไปโผล่ตรงตำแหน่ง <Outlet /> ในไฟล์ NavbarUser [cite: 87, 89] */}
           {/* <Route index element={<Dashboard />} /> */}            {/* URL: /user */}
           {/* <Route path="search" element={<SearchPage />} /> */}     {/* URL: /user/search */}
