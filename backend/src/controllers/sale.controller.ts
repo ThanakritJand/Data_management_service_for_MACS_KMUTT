@@ -11,11 +11,24 @@ export const getSaleRecords = async(req: Request,  res:Response) => {
     }
 }
 
+export const createSaleRecord = async(req: Request , res: Response) => {
+    try {
+        const result = await saleRecordService.createSaleRecord(req.body)
+        res.status(201).json({ message: "บันทึกข้อมูลสำเร็จ", data: result });
+    }catch(e) {
+        console.error('Error creating sale record:', e);
+            res.status(500).json({ 
+            error: "ไม่สามารถบันทึกข้อมูลได้",
+            detail: String(e)   // ← เพิ่มบรรทัดนี้
+        });;
+    }
+}
+
 export const importExcelRecord = async(req: Request,  res:Response) => {
     try{
        const records = req.body.recordData
 
-       if(!records || Array.isArray(records)) {
+       if(!records || !Array.isArray(records)) {
         res.status(400).json({error: "รูปแบบข้อมูลไม่ถูกต้อง กรุณาส่งเป็น Array"})
         return
        }

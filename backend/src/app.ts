@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import cors from 'cors';                          
 import { config } from './config/env.js';
 
 // นำเข้า Routes ระบบประวัติการจำหน่ายครุภัณฑ์
@@ -7,6 +8,12 @@ import saleRecordRoutes from './routes/sale.router.js';
 const app = express();
 
 // Middleware ให้ Express อ่าน JSON ที่หน้าเว็บส่งมาได้
+app.use(cors({
+  origin: 'http://localhost:5173',   // ← URL ของ frontend คุณ
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 app.use(express.json());
 
 // ==========================================

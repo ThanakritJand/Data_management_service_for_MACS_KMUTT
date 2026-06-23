@@ -15,13 +15,15 @@ export const getAllSaleRecords = async () => {
 }
 
 export const createSaleRecord = async (data: any) => {
+  console.log("📦 Data received in service:", data);  // ← เพิ่มบรรทัดนี้
+  console.log("👤 responsiblePerson:", data.responsiblePerson); // ← และนี้
   return await prisma.equipmentSaleRecord.create({
     data: {
       title: data.title,
       department: data.department,
       estimatedPrice: data.estimatedPrice,
       soldPrice: data.soldPrice,
-      auctionMethod: data.auctionMethod, // ต้องเป็น Enum
+      auctionMethod: data.auctionMethod as AuctionMethod, // ต้องเป็น Enum
       auctionDate: new Date(data.auctionDate),
       winnerName: data.winnerName,
       responsiblePerson: data.responsiblePerson,
