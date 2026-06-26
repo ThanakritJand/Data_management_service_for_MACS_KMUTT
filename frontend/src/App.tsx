@@ -7,6 +7,7 @@ import Homepage from "./pages/user/Homepage";
 import AddItemPage from "./pages/user/AddItemPage";
 import ExcelImportPage from "./pages/user/ExcelImportPage";
 import SearchFilterPage from "./pages/user/SearchFilterPage";
+import DashboardPage from "./pages/user/DashboardPage";
 
 function App (){
   return (
@@ -27,6 +28,7 @@ function App (){
           <Route path="addItem" element={<AddItemPage />}/>
           <Route path="import-center" element={<ExcelImportPage />}/>
           <Route path="filter" element={<SearchFilterPage />}/>
+          <Route path="overview" element={<DashboardPage />}/>
           {/* ตัวลูก: เนื้อหาเหล่านี้จะไปโผล่ตรงตำแหน่ง <Outlet /> ในไฟล์ NavbarUser [cite: 87, 89] */}
           {/* <Route index element={<Dashboard />} /> */}            {/* URL: /user */}
           {/* <Route path="search" element={<SearchPage />} /> */}     {/* URL: /user/search */}
