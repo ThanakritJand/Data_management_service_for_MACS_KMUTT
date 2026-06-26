@@ -9,7 +9,7 @@ const Home = () => {
         
         {/* ปุ่มจำลองสำหรับกดเข้าไปดูโซน User */}
         <Link 
-          to="/user" 
+          to="/user/overview" 
           className="px-6 py-3 bg-theme-primary text-white rounded-md hover:bg-theme-hover transition-colors"
         >
           เข้าสู่ระบบ / ไปหน้า User Dashboard

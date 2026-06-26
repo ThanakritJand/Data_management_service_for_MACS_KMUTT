@@ -17,10 +17,10 @@ import { IoIosSettings } from "react-icons/io";
 
 const SidebarUser = () => {
   return (
-    <aside className="bg-theme-sidebar text-theme-sidebarText flex flex-col gap-5 px-10 w-70 min-h-screen display:none">
+    <aside className="bg-theme-sidebar text-theme-sidebarText flex flex-col gap-5 px-10 w-70 sticky top-0 h-screen overflow-y-auto">
         <h1 className="py-10 text-4xl font-semibold">PAM MACS</h1>
         <ul className="flex flex-col gap-5 my-3">
-            <Link to="/user" className="flex items-center gap-2"><FaHome /> <span>หน้าแรก</span></Link>
+            <Link to="overview" className="flex items-center gap-2"><FaHome /> <span>หน้าแรก</span></Link>
             <Link to="filter" className="flex items-center gap-2"><IoSearchSharp /> <span>ค้นหารายการ</span></Link>
             <Link to="addItem" className="flex items-center gap-2"><TiPlus /> <span>ขอเพิ่มรายการ</span></Link>
             <Link to="/" className="flex items-center gap-2"><PiNotePencilBold /> <span>ขอแก้ไขรายการ</span></Link>

@@ -5,7 +5,6 @@ const Homepage = () => {
   return (
     <main>
         <NavbarUser />
-        test
     </main>
   )
 }
