@@ -1,4 +1,4 @@
-import prisma from "../models/prisma";
+import prisma from "../models/prisma.js";
 import { AuctionMethod } from "../../generated/prisma/client";
 
 export const mapThaiAuctionMethodToEnum = (thaiText: string): AuctionMethod => {
