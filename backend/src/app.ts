@@ -9,7 +9,7 @@ const app = express();
 
 // Middleware ให้ Express อ่าน JSON ที่หน้าเว็บส่งมาได้
 app.use(cors({
-  origin: 'http://localhost:5173',   // ← URL ของ frontend คุณ
+  origin: '*',   // ← URL ของ frontend คุณ
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
