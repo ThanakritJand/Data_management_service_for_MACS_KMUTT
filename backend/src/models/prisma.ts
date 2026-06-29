@@ -1,4 +1,4 @@
-import { PrismaClient } from "../../generated/prisma";
+import { PrismaClient } from '../../generated/prisma/index.js';
 import { PrismaPg } from "@prisma/adapter-pg";
 import { Pool } from "pg"; // @prisma/adapter-pg มักจะต้องใช้คู่กับ pg Pool
 
