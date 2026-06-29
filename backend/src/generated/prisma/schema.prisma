@@ -1,0 +1,134 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  role      UserRole @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  password  String
+}
+
+model Category {
+  id         Int         @id @default(autoincrement())
+  name       String      @unique
+  equipments Equipment[]
+
+  @@map("categories")
+}
+
+model EquipmentType {
+  id         Int         @id @default(autoincrement())
+  name       String      @unique
+  equipments Equipment[]
+
+  @@map("equipment_types")
+}
+
+model Unit {
+  id         Int         @id @default(autoincrement())
+  name       String      @unique
+  equipments Equipment[]
+
+  @@map("units")
+}
+
+model FileData {
+  fileId        Int         @id @default(autoincrement())
+  fileName      String
+  fileSize      Decimal     @db.Decimal(10, 2)
+  fileType      String
+  fileUrl       String
+  attEquipments Equipment[] @relation("AttachFiles")
+  refEquipments Equipment[] @relation("ReferenceDocs")
+
+  @@map("file_data")
+}
+
+model Equipment {
+  id              Int           @id @default(autoincrement())
+  name            String
+  typeId          Int           @map("type_id")
+  categoryId      Int           @map("category_id")
+  unitId          Int           @map("unit_id")
+  brand           String?
+  model           String?
+  description     String?
+  reasonForUse    String        @map("reason_for_use")
+  unitPrice       String        @map("unit_price")
+  referenceDocsId Int?          @map("reference_docs_id")
+  attachFileId    Int?          @map("attach_file_id")
+  createAt        DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+  attachFile      FileData?     @relation("AttachFiles", fields: [attachFileId], references: [fileId])
+  category        Category      @relation(fields: [categoryId], references: [id])
+  referenceDocs   FileData?     @relation("ReferenceDocs", fields: [referenceDocsId], references: [fileId])
+  type            EquipmentType @relation(fields: [typeId], references: [id])
+  unit            Unit          @relation(fields: [unitId], references: [id])
+
+  @@map("equipments")
+}
+
+model EquipmentSaleRecord {
+  id                Int           @id @default(autoincrement())
+  title             String
+  department        String
+  estimatedPrice    Decimal       @db.Decimal(12, 2)
+  auctionMethod     AuctionMethod
+  auctionDate       DateTime
+  soldPrice         Decimal       @db.Decimal(12, 2)
+  winnerName        String
+  responsiblePerson String
+  createdAt         DateTime      @default(now()) @map("created_at")
+  updatedAt         DateTime      @updatedAt @map("updated_at")
+
+  @@map("equipment_sale_records")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum ApproveStatus {
+  APPROVE
+  PENDING
+  REJECT
+}
+
+enum HistoryStatus {
+  CREATE
+  UPDATE
+  DELETE
+  APPROVE
+  REJECT
+}
+
+enum EntityType {
+  EQUIPMENT
+  REQUEST
+  USER
+}
+
+enum AuctionMethod {
+  PUBLIC_VERBAL
+  SPECIFIC
+  E_BIDDING
+  OTHER
+}
+
+enum EquipmentStatus {
+  IN_USE
+  BROKEN
+  MAINTENANCE
+  DISPOSED
+}
