@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom"; // 🌟 เพิ่ม import Link สำหรับทำระบบ Routing
 import { APILINK } from "../../api/LINKAPI";
 import {
@@ -455,13 +455,13 @@ const DashboardPage = () => {
                       paddingAngle={5}
                       dataKey="value"
                       labelLine={false}
-                      label={({ name, percent }) =>
+                      label={({ name, percent= 0 }) =>
                         percent > 0.05
                           ? `${name} ${(percent * 100).toFixed(0)}%`
                           : ""
                       }
                     >
-                      {chartData.methods.map((entry, index) => (
+                      {chartData.methods.map((index) => (
                         <Cell
                           key={`cell-${index}`}
                           fill={colorsForCharts[index % colorsForCharts.length]}

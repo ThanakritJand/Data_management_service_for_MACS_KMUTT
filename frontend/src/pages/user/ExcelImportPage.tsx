@@ -135,7 +135,7 @@ const ExcelImportPage = () => {
         });
 
         if (response.ok) {
-          const result = await response.json();
+          await response.json();
           setMessage({
             text: "อัพโหลดไฟล์สำเร็จ",
             type: "success",
