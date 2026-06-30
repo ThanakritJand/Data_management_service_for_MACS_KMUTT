@@ -1,5 +1,5 @@
-import prisma from "../models/prisma";
-import { AuctionMethod } from "../generated/prisma";
+import prisma from "../models/prisma.js";
+import { AuctionMethod } from "../generated/prisma/index.js";
 
 export const mapThaiAuctionMethodToEnum = (thaiText: string): AuctionMethod => {
   if (thaiText.includes('ประมูลด้วยวาจา')) return AuctionMethod.PUBLIC_VERBAL;
